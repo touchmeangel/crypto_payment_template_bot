@@ -5,7 +5,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-from  models.base import Base
+from models.base import Base
 from models.user import User
 from models.session import Session
 from models.filter import Filter
