@@ -8,12 +8,9 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 from aiogram.exceptions import TelegramForbiddenError
 from ngrok_executor import get_webhook_host
-from services.user import UserService
 from aiogram.types import FSInputFile
 from aiohttp import web
 import os
-
-CACHE_FOLDER = "cache"
 
 bot = Bot(config.TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher(storage=MemoryStorage())
