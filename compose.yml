@@ -5,3 +5,18 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    depends_on:
+      - ngrok
+    environment:
+      - NGROK_HOSTNAME=ngrok:4040
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    command:
+      - "http"
+      - "bot:${WEBAPP_PORT}"
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_TOKEN}
+    ports:
+      - "4040:4040"
