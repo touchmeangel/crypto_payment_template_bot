@@ -1,6 +1,5 @@
 from aiogram import types
 from aiogram.filters import BaseFilter
-from services.user import UserService
 
 from config import ADMIN_ID_LIST
 
