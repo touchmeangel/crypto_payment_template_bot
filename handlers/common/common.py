@@ -2,7 +2,6 @@ import logging
 import traceback
 from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from language import LanguageService
 from config import ADMIN_ID_LIST
 from bot import bot
 
@@ -50,7 +49,7 @@ def add_pagination_buttons(keyboard_builder: InlineKeyboardBuilder, unpacked_cal
 
 def get_back_to_menu_button(language_code: str):
     from handlers.user.start import create_callback_start
-    return types.InlineKeyboardButton(text=LanguageService.get_translation(language_code, "back"), callback_data=create_callback_start(0))
+    return types.InlineKeyboardButton(text="Back", callback_data=create_callback_start(0))
 
 def get_back_to_menu_markup(language_code: str):
     return types.InlineKeyboardMarkup(inline_keyboard=[[get_back_to_menu_button(language_code)]])
