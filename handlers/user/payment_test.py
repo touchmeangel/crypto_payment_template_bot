@@ -40,8 +40,7 @@ async def payment_test(message: Union[Message, CallbackQuery]):
   payment_test_50_usd_button = types.InlineKeyboardButton(text=f"50$", callback_data=create_payment_test_callback(1, price=50))
   payment_test_100_usd_button = types.InlineKeyboardButton(text=f"100$", callback_data=create_payment_test_callback(1, price=100))
   back_button = types.InlineKeyboardButton(text="Back", callback_data=create_callback_start(0))
-  markup = types.InlineKeyboardMarkup(inline_keyboard=[[
-    payment_test_0_usd_button,
+  markup = types.InlineKeyboardMarkup(inline_keyboard=[[payment_test_0_usd_button], [
     payment_test_5_usd_button,
     payment_test_10_usd_button,
     payment_test_25_usd_button,
