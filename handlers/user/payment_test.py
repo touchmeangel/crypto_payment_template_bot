@@ -9,7 +9,6 @@ from config import BASE_RPC
 from crypto_api.TRC20 import TRC20
 from crypto_api.BEP20 import BEP20
 from crypto_api.ERC20 import ERC20
-import asyncio
 import inspect
 import logging
 
