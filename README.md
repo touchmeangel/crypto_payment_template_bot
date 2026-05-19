@@ -55,6 +55,8 @@ BASE_RPC=https://mainnet.base.org
 ADMIN_ID_LIST=[123456789, 987654321]
 ```
 
+### 3. Use the example `./handlers/iser/payment_test.py` in order to create payment for your needs
+
 ## Usage
 
 ### Option A: Using Docker (Recommended)
