@@ -37,6 +37,10 @@ class PaymentTestCallback(CallbackData, prefix="payment_test"):
     asset_i: int
 
 
+def create_payment_test_callback(level: int, price: float = -1, asset_i: int = -1):
+    return PaymentTestCallback(level=level, price=price, asset_i=asset_i).pack()
+
+
 # ==========================================
 # 3. PAYMENT FLOW HANDLERS
 # ==========================================
