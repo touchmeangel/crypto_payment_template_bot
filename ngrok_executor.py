@@ -1,8 +1,8 @@
 import os
 import aiohttp
-from pyngrok import ngrok
 
 def start_ngrok():
+  from pyngrok import ngrok
   ngrok_token = os.environ.get("NGROK_TOKEN")
   port = os.environ.get("WEBAPP_PORT")
   ngrok.set_auth_token(ngrok_token)
