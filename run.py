@@ -13,5 +13,5 @@ main_router.include_router(start_router)
 main_router.include_router(payment_test_router)
 dp.include_router(main_router)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

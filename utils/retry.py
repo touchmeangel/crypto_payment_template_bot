@@ -5,6 +5,7 @@ import asyncio
 
 logger = logging.getLogger(__name__)
 
+
 def retry_on_429(func=None, *, max_retries=10, initial_delay=1):
     if func and callable(func):
         return retry_on_429(max_retries=max_retries, initial_delay=initial_delay)(func)
@@ -24,6 +25,7 @@ def retry_on_429(func=None, *, max_retries=10, initial_delay=1):
                     else:
                         raise
             raise Exception("Max retries reached")
+
         return wrapper
 
     return decorator

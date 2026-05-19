@@ -12,28 +12,41 @@ from bot import bot
 
 start_router = Router()
 
+
 class StartCallback(CallbackData, prefix="main"):
-  level: int
+    level: int
+
 
 def create_callback_start(level: int) -> str:
-  return StartCallback(level=level).pack()
+    return StartCallback(level=level).pack()
+
 
 @start_router.message(Command(commands=["start"]))
 async def start(message: Union[types.Message, types.CallbackQuery]):
-  await send_message(message, "Please support this <a href=\"https://github.com/touchmeangel/crypto_payment_template_bot\">repo</a> with a star 🥺", reply_markup=main_markup())
+    await send_message(
+        message,
+        'Please support this <a href="https://github.com/touchmeangel/crypto_payment_template_bot">repo</a> with a star 🥺',
+        reply_markup=main_markup(),
+    )
+
 
 def main_markup():
-  test_button = types.InlineKeyboardButton(text="PAYMENT TEST", callback_data=create_payment_test_callback(0))
+    test_button = types.InlineKeyboardButton(
+        text="PAYMENT TEST", callback_data=create_payment_test_callback(0)
+    )
 
-  return types.InlineKeyboardMarkup(inline_keyboard=[[test_button]])
+    return types.InlineKeyboardMarkup(inline_keyboard=[[test_button]])
+
 
 @start_router.callback_query(StartCallback.filter())
-async def start_menu_navigation(callback: types.CallbackQuery, callback_data: StartCallback):
-  current_level = callback_data.level
+async def start_menu_navigation(
+    callback: types.CallbackQuery, callback_data: StartCallback
+):
+    current_level = callback_data.level
 
-  levels = {
-    0: start,
-  }
+    levels = {
+        0: start,
+    }
 
-  current_level_function = levels[current_level]
-  await current_level_function(callback)
+    current_level_function = levels[current_level]
+    await current_level_function(callback)
