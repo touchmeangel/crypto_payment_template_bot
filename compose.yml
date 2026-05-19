@@ -3,6 +3,8 @@ services:
     build:
       dockerfile: Dockerfile
     restart: unless-stopped
+    ports:
+      - ${WEBAPP_PORT}:${WEBAPP_PORT}
     env_file:
       - .env
     depends_on:
